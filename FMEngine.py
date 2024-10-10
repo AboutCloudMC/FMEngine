@@ -2,10 +2,8 @@ import PhysicsComponent as physics
 import GraphicsComponent as graphics
 
 
-size = ()
-title = ""
-ratio = 
-loop =
+screen = None
+loop = None
 
 def init():
     screen = graphics.init(size[0], size[1], title)
