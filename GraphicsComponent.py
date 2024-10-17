@@ -19,6 +19,14 @@ class Draw:
 
     def drawRect(self, pos, width, color):
         pygame.draw.rect(self.screen, color, pos, width)
+
+class DrawableObject:
+    def __init__(self, instructions):
+        self.instructions = instructions
+
+    def draw(self):
+        for instruction in self.instructions:
+            instruction()
     
 class Color:
 
@@ -29,15 +37,19 @@ class GameLoop:
     def __init__(self, screen: pygame.Surface):
         self.screen = screen
         self.run()
+        self.objects = dict()
 
     def run(self):
+        pygame.time.Clock()
         self.running = True
         while self.running:
             # Event handling
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                    self.running = False  # Exit the loop if the window is closed
-
+            #pygame.display.update()
+            for object in self.objects.values():
+                object.draw()
             # Update the display
             pygame.display.flip()
 

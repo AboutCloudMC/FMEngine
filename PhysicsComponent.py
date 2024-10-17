@@ -8,11 +8,14 @@ class Entity:
         self.height = height
         self.mass = mass
         self.drawer = fm.graphics.Draw(fm.screen)
+
+    def setInstructions(self, instructions):
+        self.drawable = fm.graphics.DrawableObject(instructions)
     
     def actForce(self, vector, magnitude):
         print(f"Acting Force on {self.id} from {vector[0]} | {vector[1]} with a magnitude of {magnitude}.")
 
-    def draw(self, pos, color):
-        self.drawer.drawRect(pos, self.width, color)
+    def registerDrawable(self):
+        fm.loop.objects[self.id] = self.drawable
 
         
