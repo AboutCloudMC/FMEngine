@@ -1,4 +1,4 @@
-# FMEngine [Work in Progress]
+# FMEngine - **F**orces and **M**otion Engine [WIP]
 
 FMEngine is a modular and basic Python engine designed to perform various physics, math, and graphical computations.
 This engine is currently only usable to simulate the effects of mass, force, velocity and momentum on objects
