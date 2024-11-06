@@ -1,9 +1,24 @@
 import FMEngine as fm
+from physics import Entity, Vector
+from graphics import GameLoop, GraphicsComponent as g, DrawUtility
+import pygame
 
-fm.screen = fm.graphics.init(800, 600, "Simulation Test")
-fm.loop = fm.graphics.GameLoop(fm.screen)
+class Cube(Entity):
+    def __init__(self, id: str, position: Vector, side: int, mass: int):
+        super().__init__(id, side, side, mass, fm.screen)
+        self.drawer = fm.graphics.DrawUtility(fm.screen)
+    
+    def actForce(self, vector, magnitude):
+        print(f"Acting Force on {self.id} from {vector[0]} | {vector[1]} with a magnitude of {magnitude}.")
 
-cube = fm.physics.Entity("1", 10, 10, 20)
-cube.actForce((100, 100), 200)
-cube.draw((300, 300, 300, 300), fm.graphics.Color.WHITE)
+    def draw(self, screen: pygame.Surface):
+        DrawUtility(screen).
+
+
+screen = g.init(800, 600, "Simulation Test")
+loop = GameLoop(fm.screen)
+
+cube = Cube("1", 10, 10, 20)
+cube.actForce(Vector(10, 10))
+
 
