@@ -12,7 +12,7 @@ class Cube(Entity):
         print(f"Acting Force on {self.id} from {vector[0]} | {vector[1]} with a magnitude of {magnitude}.")
 
     def draw(self, screen: pygame.Surface):
-        DrawUtility(screen).
+        DrawUtility(screen).drawRect(self.position, self.width, self.height, (255, 255, 255))
 
 
 screen = g.init(800, 600, "Simulation Test")
